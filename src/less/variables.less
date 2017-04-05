@@ -1,0 +1,168 @@
+@ux-prefix: ux;
+
+
+// colors
+// -----------------------------------------------------------------------
+@black:             #000;
+@white:             #fff;
+// @blue:              #3a8cbb;
+// @azure:             #0f93ed;
+// @indigo:            #0c122a;
+// @orange:            #f60;
+// @green:             #83ae36;
+
+@gray-darker:       lighten(@black, 20%);   // #333;
+@gray-dark:         lighten(@black, 37%);   // #5f5f5f;
+@gray:              lighten(@black, 60%);   // #999;
+@gray-light:        lighten(@black, 86%);   // #dbdbdb;
+@gray-lighter:      lighten(@black, 88%);   // #e1e1e1
+
+
+
+
+// @primary-color:     @blue;
+// @error-color:       @orange;
+// @success-color:     @green;
+// @info-color:        @azure;
+@primary-color:     #008CEC;
+@info-color:        #008CEC;
+@success-color:     #00A755;
+@warning-color:     #FFBF02;
+@danger-color:      #F04135;
+
+// body 
+// -----------------------------------------------------------------------
+@body-bg:           @white;
+@text-color:        @gray-dark;
+
+
+// border
+// -----------------------------------------------------------------------
+@component-border-color:            @gray-light;  
+@component-border-width:            1px;
+@component-border-style:            solid;
+@component-border-radius:           2px;
+
+
+// font 
+// -----------------------------------------------------------------------
+@font-family-sans-serif:    "Hiragino Sans GB", "STHeitiSC-Light", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, sans-serif;
+@font-family-serif:         Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:     Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:          @font-family-sans-serif;
+
+@font-size-base:            14px;
+@font-size-sm:              12px; 
+@font-size-lg:              16px;
+@font-size-xl:              20px;
+@font-size-xxl:             24px;
+@font-size-xxxl:            30px;
+
+
+// line-height
+// -----------------------------------------------------------------------
+@line-height-base:          1.5;
+@line-height-computed:      floor((@font-size-base * @line-height-base)); 
+
+
+// margin
+// -----------------------------------------------------------------------
+@margin-vertical-base:      10px;
+
+// // @padding 
+// // -----------------------------------------------------------------------
+// @padding-vertical-base:     5px;
+// @padding-horizontal-base:   10px;
+
+// link
+// -----------------------------------------------------------------------
+@link-color:                @info-color;
+@link-hover-color:          lighten(@link-color, 0.1 * lightness(@link-color));
+@link-decoration:           none;
+@link-hover-decoration:     underline;
+
+// ins 
+// -----------------------------------------------------------------------
+@ins-bg:                    #ffa;
+
+// heading
+// -----------------------------------------------------------------------
+@font-size-h1:            @font-size-xxxl; // 30px
+@font-size-h2:            @font-size-xxl; // 24px
+@font-size-h3:            @font-size-xl; // 20px
+@font-size-h4:            @font-size-lg; // 16px
+@font-size-h5:            @font-size-base; // 14px
+@font-size-h6:            @font-size-sm; // 12px
+
+//iconfont
+// -----------------------------------------------------------------------
+@icon-font-path:            '../fonts';
+@icon-font-prefix:          fu;
+
+// Grid system
+// -----------------------------------------------------------------------
+@grid-columns:              24;
+@grid-gutter-width:         10px;
+
+// screen
+// -----------------------------------------------------------------------
+@screen-xs:                 480px;
+@screen-sm:                 768px;
+@screen-md:                 992px;
+@screen-lg:                 1200px;
+@screen-xl:                 1600px;
+
+// form
+// -----------------------------------------------------------------------
+@legend-color:              @gray-dark;
+@legend-border-color:       @component-border-color;
+
+@form-line-height-base:             1.428571429; // 20/14
+@form-line-height-computed:         20px;
+
+@input-height-base:                 32px;
+@input-height-lg:                   40px;
+@input-height-md:                   30px;
+@input-height-sm:                   28px;
+@input-height-xs:                   26px;
+
+@input-padding-horizontal-base:     10px;
+@input-padding-vertical-base:       5px;
+@input-padding-vertical-sm:         1px;
+@input-padding-vertical-lg:         6px;
+
+@input-bg:                          @white;
+@input-bg-disabled:                 lighten(@black, 95%);
+
+@input-color:                       @gray-darker;
+
+@input-border-radius:               @component-border-radius;
+@input-border-color:                @component-border-color;
+@input-border-focus:                @primary-color;
+
+@input-placeholder-color:           @gray;     
+@input-placeholder-font-size:       @font-size-base;
+
+@cursor-disabled:                   not-allowed;
+
+@form-group-margin:                 20px;
+@form-label-gutter:                 20px;
+
+@form-label-color:                  @gray-darker;
+@form-label-weight:                 400;
+@required-color:                    @danger-color;
+
+@form-help-font-size:               @font-size-base;
+@form-help-color:                   @gray;
+// @form-help-icon-font-size:          16px;
+
+@form-static-font-size:             @font-size-base;
+@form-static-color:                 @gray-darker;
+
+@input-group-addon-color:           @gray-darker;
+@input-group-addon-bg:              lighten(@black, 95%);
+
+// @checkbox-radio-border-color:       @component-border-color;
+@checkbox-radio-color:              @primary-color;
+@checkbox-radio-bg-disabled:        lighten(@black, 95%);
+

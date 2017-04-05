@@ -1,0 +1,12 @@
+{
+  "name": "uxcool",
+  "version": "1.0.0",
+  "description": "uxcool ui library",
+  "main": "index.js",
+  "scripts": {
+    "build": "lessc src/less/uxcool.less dist/css/uxcool.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

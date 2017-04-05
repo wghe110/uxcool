@@ -1,0 +1,432 @@
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: @margin-vertical-base;
+  font-size: (@font-size-base * 1.5);
+  line-height: inherit;
+  color: @legend-color;
+  border: 0;
+  border-bottom: 1px solid @legend-border-color;
+}
+
+label {
+  font-size: @font-size-base;
+}
+
+input[type="search"] {
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Adjust output element
+output {
+  display: block;
+  padding-top: @input-padding-vertical-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @input-color;
+}
+
+.@{ux-prefix}-form-field {
+    display: block;
+    width: 100%;
+    height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+    padding: @input-padding-vertical-base @input-padding-horizontal-base;
+    font-size: @font-size-base;
+    line-height: @form-line-height-computed;
+    color: @input-color;
+    background-color: @input-bg;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid @input-border-color;
+    border-radius: @input-border-radius; 
+    .transition(~"border-color ease-out .3s, box-shadow ease-out .3s");
+    .form-field-focus();
+
+    .placeholder();
+
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+      border: 0;
+      background-color: transparent;
+    }
+
+    // Disabled and read-only inputs
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+      background-color: @input-bg-disabled;
+      opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      cursor: @cursor-disabled;
+    }
+
+    // Reset height for `textarea`s
+    textarea& {
+      height: auto;
+    }
+
+    
+}
+
+.@{ux-prefix}-form-group {
+    margin-bottom: @form-group-margin;
+    line-height: @form-line-height-computed;
+
+    &&-compact {
+        margin-bottom: @form-group-margin - @form-line-height-computed;
+    }
+
+    &.with-error {
+        .form-field-validation(@danger-color; @danger-color);
+    }
+
+    &.with-warning {
+        .form-field-validation(@warning-color; @warning-color);
+    }
+
+    &.with-success {
+        .form-field-validation(@success-color; @input-border-color);
+    }
+}
+
+.@{ux-prefix}-form-label {
+    display: inline-block;
+    padding-top: @input-padding-vertical-base + 1;
+    padding-bottom: @input-padding-vertical-base + 1;
+    text-align: right;
+    vertical-align: middle;
+
+    label {
+        position: relative;
+        padding-right: @form-label-gutter;
+        color: @form-label-color;
+        font-weight: @form-label-weight;
+
+        &.@{ux-prefix}-required:after {
+            content: '*';
+            position: absolute;
+            top: -5px;
+            right: 12px;
+            font-size: 12px;
+            font-family: SimSun;
+            line-height: 1;
+            color: @required-color;
+        }
+    }
+}
+
+// The difference between help and message is that the color of message is consistent with the validation state.  
+.@{ux-prefix}-help-block,
+.@{ux-prefix}-message-block {
+    display: block;
+    .form-help();
+}
+
+.@{ux-prefix}-help-inline,
+.@{ux-prefix}-message-inline {
+    display: inline-block;
+    margin-left: 10px;
+    padding-top: @input-padding-vertical-base + 1;
+    .form-help();
+}
+
+.@{ux-prefix}-form-static {
+    min-height: @input-height-base;
+    padding-top: @input-padding-vertical-base + 1;
+    padding-bottom: @input-padding-vertical-base + 1;
+    font-size: @form-static-font-size;
+    color: @form-static-color;
+    .text-break();
+}
+
+.@{ux-prefix}-input-icon {
+    position: relative;
+    > i {
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: 9px;
+        width: 16px;
+        height: 16px;
+        color: @input-color;
+        font-size: 16px;
+        text-align: right;
+        z-index: 2;
+    }
+    > .@{ux-prefix}-form-field {
+        padding-left: 33px;
+    }
+    &.right {
+      > i {
+        left: auto;
+        right: 9px;
+      }
+      > .@{ux-prefix}-form-field {
+        padding-left: @input-padding-horizontal-base;
+        padding-right: 33px;
+      }
+    }
+}
+
+.@{ux-prefix}-input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+
+    &-addon,
+    &-btn,
+    .@{ux-prefix}-input-icon,
+    .@{ux-prefix}-form-field {
+      display: table-cell;
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+      }
+    }
+
+    &-addon,
+    &-btn {
+      width: 1%;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .@{ux-prefix}-form-field:first-child,
+    &-addon:first-child,
+    &-btn:first-child {
+      .border-right-radius(0);
+    }
+
+    .@{ux-prefix}-form-field:last-child,
+    &-addon:last-child,
+    &-btn:last-child {
+      .border-left-radius(0);
+    }
+
+}
+
+.@{ux-prefix}-input-group-addon {
+    padding: @input-padding-vertical-base @input-padding-horizontal-base;
+    border: 1px solid @input-border-color;
+    background-color: @input-group-addon-bg;
+    line-height: 1;
+    font-weight: normal;
+    color: @input-group-addon-color;
+    font-size: @font-size-base;
+    text-align: center;
+    border-radius: @component-border-radius;
+
+    &:first-child {
+      border-right: 0;
+    }    
+    &:last-child {
+      border-left: 0;
+    }
+}
+
+// .@{ux-prefix}-input-group-btn {
+//   //TODO
+// }
+
+
+//TODO
+// file
+.@{ux-prefix}-checkbox,
+.@{ux-prefix}-checkbox-inline,
+.@{ux-prefix}-radio,
+.@{ux-prefix}-radio-inline {
+    position: relative;
+    margin: (@input-padding-vertical-base + 1) 0;
+
+    & > label {
+        display: inline-block;
+        min-height: @form-line-height-computed;
+        padding-left: 26px;
+        line-height: @form-line-height-computed;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.@{ux-prefix}-checkbox,
+.@{ux-prefix}-radio {
+    display: block;
+
+    &-control {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: (@form-line-height-computed - 16)/ 2 ; 
+        width: 16px;
+        height: 16px;
+        border: 1px solid @component-border-color;
+        background: @white;
+    }
+}
+
+.@{ux-prefix}-checkbox-control input[type=checkbox],
+.@{ux-prefix}-radio-control input[type=radio] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+.@{ux-prefix}-checkbox-control {
+    border-radius: @component-border-radius;
+
+    .@{ux-prefix}-checkbox-checked & {
+        background-color: @checkbox-radio-color;
+        border-color: @checkbox-radio-color;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            top: 0;
+            left: 5px;
+            border: 1px solid #fff;
+            border-top: 0;
+            border-left: 0;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.@{ux-prefix}-checkbox-disabled {
+    label {
+        color: @gray;
+        cursor: @cursor-disabled;
+    }
+
+    input[type=checkbox] {
+        cursor: @cursor-disabled;
+    }
+
+    & .@{ux-prefix}-checkbox-control {
+        border-color: @component-border-color;
+        background-color: @checkbox-radio-bg-disabled;
+    }
+
+    &.@{ux-prefix}-checkbox-checked .@{ux-prefix}-checkbox-control:after {
+        border-color: @gray;
+    }
+}
+
+
+.@{ux-prefix}-radio-control {
+    border-radius: 50%;
+
+    .@{ux-prefix}-radio-checked & {
+        border-color: @checkbox-radio-color;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            top: 4px;
+            left: 4px;
+            background: @checkbox-radio-color;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+.@{ux-prefix}-radio-disabled {
+    label {
+        color: @gray;
+        cursor: @cursor-disabled;
+    }
+
+    input[type=radio] {
+        cursor: @cursor-disabled;
+    }
+
+    & .@{ux-prefix}-radio-control {
+        border-color: @component-border-color;
+        background-color: @checkbox-radio-bg-disabled;
+    }
+
+    &.@{ux-prefix}-radio-checked .@{ux-prefix}-radio-control:after {
+        background-color: @gray;
+    }
+}
+
+.@{ux-prefix}-checkbox-inline,
+.@{ux-prefix}-radio-inline {
+    display: inline-block;
+
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+}
+
+//inline form
+.@{ux-prefix}-form-inline {
+    .@{ux-prefix}-form-group {
+        display: inline-block;
+        margin-right: 30px;
+    }
+
+    .@{ux-prefix}-form-label label {
+        padding-right: 10px;
+
+        &.@{ux-prefix}-required:after {
+            right: 5px;
+        }
+    }
+
+    .@{ux-prefix}-form-field {
+        display: inline-block;
+        width: auto;
+    }
+
+    .@{ux-prefix}-input-group {
+        display: inline-table;
+        .@{ux-prefix}-form-field {
+            width: 100%;
+        }
+        &-addon,
+        &-btn {
+            width: auto;
+        }
+    }
+}

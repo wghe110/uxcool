@@ -1,0 +1,226 @@
+/*
+ * Uxcool base style
+ * ------------------------
+ */
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+::selection {
+  background: @primary-color;
+  color: #fff;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+body {
+    background: @body-bg;
+    font-size: @font-size-base;
+    font-family: @font-family-base;
+    line-height: @line-height-base;
+    color: @text-color;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+// Remove the clear button of a text input control in IE10+
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
+a {
+    color: @link-color;
+    text-decoration: @link-decoration;
+    outline: none;
+    transition: color .3s ease;
+
+    &:hover,
+    &:focus {
+        color: @link-hover-color;
+        text-decoration: @link-hover-decoration;
+    }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+ins {
+    background: @ins-bg;
+    color: @text-color;
+}
+
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+
+dfn[title] {
+  border-bottom: 1px dotted;
+  font-style: normal;
+}
+
+p,
+hr,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+address,
+fieldset,
+figure {
+  margin: 0 0 @margin-vertical-base 0;
+}
+
+* + p,
+* + hr,
+* + ul,
+* + ol,
+* + dl,
+* + blockquote,
+* + pre,
+* + address,
+* + fieldset,
+* + figure {
+  margin-top: @margin-vertical-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: @line-height-computed 0;
+    font-family: inherit;
+}
+
+h1 {
+    font-size: @font-size-h1;
+}
+h2 {
+    font-size: @font-size-h2;
+}
+h3 {
+    font-size: @font-size-h3;
+}
+h4 {
+    font-size: @font-size-h4;
+}
+h5 {
+    font-size: @font-size-h5;
+}
+h6 {
+    font-size: @font-size-h6;
+}
+
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+    margin-top: @line-height-computed;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: @font-family-monospace;
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: @margin-vertical-base;
+    ul,
+    ol {
+        margin-bottom: 0;
+    }
+}
+
+dt {
+  font-weight: bold;
+  & + dd {
+    margin-top: .5em;
+  }
+}
+
+dd {
+  margin-left: 0;
+  & + dt {
+    margin-top: 1em;
+  }
+}
+
+hr {
+  display: block;
+  padding: 0;
+  border: 0;
+  height: 0;
+  border-top: @component-border-width @component-border-style @component-border-color;
+  box-sizing: content-box; 
+}
+
+address {
+  font-style: normal;
+}
+
+blockquote {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  border-left: 4px solid @gray-light;
+
+  small {
+    display: block;
+    color: @text-color;
+    font-family: @font-family-sans-serif;
+    text-align: right;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.@{ux-prefix}-img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input:not([type="radio"]):not([type="checkbox"]),
+select {
+  vertical-align: middle;
+}
