@@ -482,6 +482,10 @@ template {
 *:before {
   box-sizing: border-box;
 }
+::-moz-selection {
+  background: #008CEC;
+  color: #fff;
+}
 ::selection {
   background: #008CEC;
   color: #fff;
@@ -517,6 +521,7 @@ a {
   color: #008CEC;
   text-decoration: none;
   outline: none;
+  -webkit-transition: color .3s ease;
   transition: color .3s ease;
 }
 a:hover,
@@ -3514,7 +3519,6 @@ output {
   border: 1px solid #dbdbdb;
   border-radius: 2px;
   -webkit-transition: border-color ease-out .3s, box-shadow ease-out .3s;
-  -o-transition: border-color ease-out .3s, box-shadow ease-out .3s;
   transition: border-color ease-out .3s, box-shadow ease-out .3s;
 }
 .ux-form-field:focus {
@@ -3786,7 +3790,8 @@ textarea.ux-form-field {
   border: 1px solid #fff;
   border-top: 0;
   border-left: 0;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .ux-checkbox-disabled label {
   color: #999999;
@@ -3864,4 +3869,166 @@ textarea.ux-form-field {
 .ux-form-inline .ux-input-group-addon,
 .ux-form-inline .ux-input-group-btn {
   width: auto;
+}
+.ux-table {
+  width: 100%;
+  border: 1px solid #DBDBDD;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.ux-table > thead {
+  background-color: #f3f3f3;
+}
+.ux-table > thead > tr > th {
+  height: 50px;
+  font-size: 14px;
+  color: #040404;
+  border-bottom: 1px solid #ebebeb;
+  font-weight: 400;
+}
+.ux-table > tbody {
+  background-color: #fff;
+}
+.ux-table > tbody > tr > td {
+  height: 38px;
+  border-bottom: 1px solid #ebebeb;
+  color: #333;
+  font-size: 12px;
+}
+.ux-table-bordered > thead > tr > th,
+.ux-table-bordered > tbody > tr > td {
+  border-right: 1px solid #ebebeb;
+}
+.ux-table-hover > tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+.ux-table-striped > tbody > tr:nth-child(even) {
+  background-color: #fbfbfb;
+}
+.ux-btn {
+  display: inline-block;
+  padding: 5px 16px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  outline: none;
+}
+.ux-btn.disabled,
+.ux-btn[disabled] {
+  cursor: not-allowed;
+  opacity: .65;
+}
+.ux-btn-block {
+  width: 100%;
+  display: block;
+}
+.ux-btn-sm {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 2px 8px;
+}
+.ux-btn-lg {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 11px 67px;
+}
+.ux-btn-primary {
+  color: #fff;
+  background: #008CEC;
+}
+.ux-btn-primary:hover {
+  background: #32ACFF;
+}
+.ux-btn-primary:active {
+  background: #0077CA;
+}
+.ux-btn-primary.disabled:hover,
+.ux-btn-primary[disabled]:hover {
+  background: #008CEC;
+}
+.ux-btn-primary.disabled:active,
+.ux-btn-primary[disabled]:active {
+  background: #008CEC;
+}
+.ux-btn-default {
+  color: #333;
+  border: 1px solid #D0D0D0;
+  background-color: transparent;
+}
+.ux-btn-default:hover {
+  color: #008CEC;
+  border-color: #008CEC;
+}
+.ux-btn-default:active {
+  color: #0077C9;
+  border-color: #0077C9;
+}
+.ux-btn-default.disabled:hover,
+.ux-btn-default[disabled]:hover {
+  color: #333;
+  border-color: #D0D0D0;
+}
+.ux-btn-default.disabled:active,
+.ux-btn-default[disabled]:active {
+  color: #333;
+  border-color: #D0D0D0;
+}
+.ux-btn-ghost {
+  color: #008CEC;
+  border: 1px solid #008CEC;
+  background-color: transparent;
+}
+.ux-btn-ghost:hover {
+  color: #32ACFF;
+  border-color: #32ACFF;
+}
+.ux-btn-ghost:active {
+  color: #0077C9;
+  border-color: #0077C9;
+}
+.ux-btn-ghost.disabled:hover,
+.ux-btn-ghost[disabled]:hover {
+  color: #008CEC;
+  border-color: #008CEC;
+}
+.ux-btn-ghost.disabled:active,
+.ux-btn-ghost[disabled]:active {
+  color: #008CEC;
+  border-color: #008CEC;
+}
+.ux-btn-link {
+  color: #008CEC;
+  background-color: transparent;
+}
+.ux-btn-link:hover {
+  color: #32ACFF;
+}
+.ux-btn-link:active {
+  color: #0077C9;
+}
+.ux-btn-link.disabled:hover,
+.ux-btn-link[disabled]:hover {
+  color: #008CEC;
+}
+.ux-btn-link.disabled:active,
+.ux-btn-link[disabled]:active {
+  color: #008CEC;
+}
+.item-h {
+  margin-bottom: 10px;
 }
